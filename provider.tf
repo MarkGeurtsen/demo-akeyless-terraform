@@ -19,3 +19,8 @@ provider "akeyless" {
         jwt = var.jwt
     }
 }
+
+resource "akeyless_static_secret" "static_secret" {
+    path = "/terraform/terraform-test"
+    value = "Hello World!"
+}
