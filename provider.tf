@@ -7,11 +7,15 @@ terraform {
     }
 }
 
+variable "jwt" {
+    type = string
+}
+
 provider "akeyless" {
     api_gateway_address = "https://api.akeyless.io"
 
     jwt_login {
         access_id = "p-y5bae7zhmim1om"
-        jwt = ""
+        jwt = var.jwt
     }
 }
