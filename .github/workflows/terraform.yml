@@ -45,5 +45,5 @@ jobs:
 
       - name: Terraform apply
         env:
-          TF_VAR_jwt: ${{ env.JWT }}
-        run: terraform apply -auto-approve
+          GITHUB_JWT : ${{ env.JWT }}
+        run: terraform apply -auto-approve -var "jwt=${GITHUB_JWT}"
