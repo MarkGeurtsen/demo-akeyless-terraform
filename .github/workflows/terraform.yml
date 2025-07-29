@@ -21,12 +21,19 @@ jobs:
           terraform_version: 1.12.2
 
 
-      - name: Get Github OIDC JWT
-        id: oidc-jwt 
-        run: | 
-          echo "JWT=$(curl -sSL \
-          -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-          "$ACTIONS_ID_TOKEN_REQUEST_URL")" >> $GITHUB_ENV
+      # - name: Get Github OIDC JWT
+      #   id: oidc-jwt 
+      #   run: | 
+      #     echo "JWT=$(curl -sSL \
+      #     -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+      #     "$ACTIONS_ID_TOKEN_REQUEST_URL")" >> $GITHUB_ENV
+
+      - name: Get OIDC Token
+        run: |
+          OIDC_TOKEN=$(curl -sLS "${ACTIONS_ID_TOKEN_REQUEST_URL}" -H "User-Agent: actions/oidc-client" -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN")
+          JWT=$(echo $OIDC_TOKEN | jq -j '.value')
+          echo "JWT=$JWT" >> $GITHUB_ENV # Store the JWT as an environment variable
+
 
       - name: Terraform Init
         run: terraform init
