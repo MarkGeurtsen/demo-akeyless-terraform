@@ -5,6 +5,13 @@ terraform {
             version = "1.9.0"
         }
     }
+
+    backend "s3" {
+        bucket = "markg-terraform-bucket"
+        key = "project/terraform.tfstate"
+        region = "us-east-2"
+        encrypt = true
+    }
 }
 
 variable "jwt" {
