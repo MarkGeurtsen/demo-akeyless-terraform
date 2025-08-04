@@ -35,3 +35,7 @@ resource "akeyless_static_secret" "static_secret" {
 data "akeyless_dynamic_secret" "mysql_dynamic_secret" {
     path = "/4-dynamic-secret/mysql"
 }
+
+data "akeyless_dynamic_secret" "k8s_dynamic_secret" {
+    path = "/4-dynamic-secret/generic-k8s-ds"
+}
