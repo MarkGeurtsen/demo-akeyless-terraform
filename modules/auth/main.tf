@@ -10,7 +10,7 @@ terraform {
 resource "akeyless_auth_method_saml" "authentication_method" {
     name = "terraform/auth-method"
     unique_identifier = "email"
-    idp_metadata_xml_data = file("https://dev-18478873.okta.com/app/exkot5op6eUeTvji15d7/sso/saml/metadata")
+    idp_metadata_url = "https://dev-18478873.okta.com/app/exkot5op6eUeTvji15d7/sso/saml/metadata"
 }
 
 resource "akeyless_role" "access_role" {
