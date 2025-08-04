@@ -1,3 +1,12 @@
+terraform {
+    required_providers {
+        akeyless = {
+            source = "akeyless-community/akeyless"
+            version = "1.9.0"
+        }
+    }
+}
+
 resource "akeyless_auth_method_saml" "authentication_method" {
     name = "terraform/auth-method"
     unique_identifier = "email"
