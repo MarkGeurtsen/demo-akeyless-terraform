@@ -13,8 +13,17 @@ resource "akeyless_static_secret" "static_secret" {
     value = "Hello World!"
 }
 
-data "akeyless_static_secret" "github_private_key" {
-    path = "/1-static-secret/github_private_key"
+# data "akeyless_static_secret" "github_private_key" {
+#     path = "/1-static-secret/github_private_key"
+# }
+
+import {
+    id = "/1-static-secret/github_private_key"
+    to = akeyless_static_secret.github_private_key
+}
+
+resource "akeyless_static_secret" "github_private_key" {
+    name = "/1-static-secret/github_private_key"
 }
 
 resource "akeyless_target_github" "github_target" {
