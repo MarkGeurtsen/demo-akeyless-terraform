@@ -31,15 +31,7 @@ module "authentication_and_access" {
     source = "./modules/auth"
 }
 
-resource "akeyless_static_secret" "static_secret" {
-    path = "/terraform/terraform-test"
-    value = "Hello World!"
+module "secrets" {
+    source = "./modules/secrets"
 }
 
-data "akeyless_dynamic_secret" "mysql_dynamic_secret" {
-    path = "/4-dynamic-secret/mysql"
-}
-
-data "akeyless_dynamic_secret" "k8s_dynamic_secret" {
-    path = "/4-dynamic-secret/generic-k8s-ds"
-}
