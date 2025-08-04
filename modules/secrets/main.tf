@@ -17,10 +17,7 @@ resource "akeyless_static_secret" "static_secret" {
 #     path = "/1-static-secret/github_private_key"
 # }
 
-import {
-    id = "/1-static-secret/github_private_key"
-    to = akeyless_static_secret.github_private_key
-}
+
 
 resource "akeyless_static_secret" "github_private_key" {
     name = "/1-static-secret/github_private_key"
