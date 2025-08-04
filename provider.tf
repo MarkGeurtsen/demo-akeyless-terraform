@@ -31,3 +31,7 @@ resource "akeyless_static_secret" "static_secret" {
     path = "/terraform/terraform-test"
     value = "Hello World!"
 }
+
+data "akeyless_dynamic_secret" "mysql_dynamic_secret" {
+    path = "/4-dynamic-secret/mysql"
+}
