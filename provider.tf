@@ -27,6 +27,10 @@ provider "akeyless" {
     }
 }
 
+module "authentication_and_access" {
+    source = "./modules/auth"
+}
+
 resource "akeyless_static_secret" "static_secret" {
     path = "/terraform/terraform-test"
     value = "Hello World!"
