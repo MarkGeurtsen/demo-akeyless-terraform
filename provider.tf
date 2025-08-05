@@ -27,6 +27,12 @@ provider "akeyless" {
     }
 }
 
+module "secrets" {
+    source = "./modules/secrets"
+}
+
+# Auth method and access role created for each time.
+
 variable "team_names" {
     type = list(string)
 }
@@ -37,12 +43,3 @@ module "authentication_and_access" {
 
     team_name = var.team_names[count.index]
 }
-
-module "secrets" {
-    source = "./modules/secrets"
-}
-
-# import {
-#     id = "/1-static-secret/github-app-private-key"
-#     to = module.secrets.akeyless_static_secret.github_private_key
-# }
