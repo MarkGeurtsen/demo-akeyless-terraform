@@ -22,7 +22,7 @@ resource "akeyless_role" "access_role" {
     name = "terraform/${var.team_name}-access-role"
 
     assoc_auth_method {
-        am_name = "terraform/auth-method"
+        am_name = "terraform/${var.team_name}-auth-method"
         sub_claims = {
             groups = "developers"
         }
