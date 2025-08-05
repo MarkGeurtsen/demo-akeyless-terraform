@@ -27,9 +27,15 @@ provider "akeyless" {
     }
 }
 
+variable "team_names" {
+    type = list(string)
+}
 
 module "authentication_and_access" {
+    count = length(var.team_names)
     source = "./modules/auth"
+
+    team_name = var.team_names[count.index]
 }
 
 module "secrets" {
