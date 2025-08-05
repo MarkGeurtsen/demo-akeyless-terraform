@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"authentication_and_access","Source":"./modules/auth","Dir":"modules/auth"},{"Key":"secrets","Source":"./modules/secrets","Dir":"modules/secrets"}]}
