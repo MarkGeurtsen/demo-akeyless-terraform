@@ -27,10 +27,6 @@ provider "akeyless" {
     }
 }
 
-import {
-    id = "/1-static-secret/github-app-private-key"
-    to = module.secrets.akeyless_static_secret.github_private_key
-}
 
 module "authentication_and_access" {
     source = "./modules/auth"
@@ -40,3 +36,7 @@ module "secrets" {
     source = "./modules/secrets"
 }
 
+# import {
+#     id = "/1-static-secret/github-app-private-key"
+#     to = module.secrets.akeyless_static_secret.github_private_key
+# }
