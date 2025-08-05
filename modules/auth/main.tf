@@ -19,7 +19,7 @@ resource "akeyless_auth_method_saml" "authentication_method" {
 
 resource "akeyless_role" "access_role" {
     depends_on = [ akeyless_auth_method_saml.authentication_method ]
-    name = "terraform/${var.team-name}-access-role"
+    name = "terraform/${var.team_name}-access-role"
 
     assoc_auth_method {
         am_name = "terraform/auth-method"
