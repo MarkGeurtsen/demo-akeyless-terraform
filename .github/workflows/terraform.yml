@@ -39,7 +39,7 @@ jobs:
       - name: Terraform plan
         env:
           TF_VAR_jwt: ${{ env.JWT }}
-        run: terraform plan
+        run: terraform plan -var-file="values.tfvars"
 
       - name: Terraform apply
         env:
