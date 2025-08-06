@@ -34,3 +34,13 @@ resource "akeyless_role" "access_role" {
         rule_type = "item-rule"
     }
 }
+
+resource "akeyless_auth_method_oauth2" "oauth2-auth" {
+  name              = "terraform/${var.team_name}/oauth-2-auth-method"
+  unique_identifier = "repository"
+
+  gateway_url = "https://aws-gw.mg-aws.cs.akeyless.fans"
+  jwks_uri    = "https://token.actions.githubusercontent.com/.well-known/jwks"
+  jwt_ttl     = 180 # minutes
+
+}
