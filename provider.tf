@@ -44,12 +44,4 @@ module "authentication_and_access" {
     team_name = var.team_names[count.index]
 }
 
-resource "akeyless_auth_method_oauth2" "oauth2-auth" {
-  name              = "terraform/oauth-2-auth-method"
-  unique_identifier = "repository"
 
-  gateway_url = "https://aws-gw.mg-aws.cs.akeyless.fans"
-  jwks_uri    = "https://token.actions.githubusercontent.com/.well-known/jwks"
-  jwt_ttl     = 180 # minutes
-
-}
